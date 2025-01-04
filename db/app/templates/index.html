@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <div class="header-content">
+      <div class="header-title">
+        <h1>Data Explorer</h1>
+        <p>Analytics & Insights Dashboard</p>
+      </div>
+      <button id="refreshBtn" class="refresh-btn">
+        <i class="fas fa-sync-alt"></i>
+        <span>Sync Data</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="dashboard-grid">
+    <div class="main-content">
+      <div class="search-panel glass-morphism">
+        <div class="search-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search through pages...">
+        </div>
+        <div class="filter-wrapper">
+          <select id="sortSelect">
+            <option value="title">Sort by Title</option>
+            <option value="recent">Sort by Recent</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner"></div>
+      </div>
+      
+      <div id="dataAccordion" class="data-grid"></div>
+    </div>
+
+    <aside class="dashboard-sidebar">
+      <div class="analytics-card glass-morphism">
+        <div class="card-header">
+          <h2>Analytics Overview</h2>
+          <span class="badge">Live</span>
+        </div>
+        
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <div class="metric-content">
+              <h3>Total Pages</h3>
+              <p id="totalPages">0</p>
+            </div>
+          </div>
+          
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-link"></i>
+            </div>
+            <div class="metric-content">
+              <h3>With Links</h3>
+              <p id="pagesWithLinks">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-wrapper glass-morphism">
+          <canvas id="statsChart"></canvas>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}
